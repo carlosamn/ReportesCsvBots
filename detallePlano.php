@@ -1,10 +1,10 @@
 <?php 
 
-require_once "../thirdPartyLibraries/simpleXLSX.php";
+require_once "./Librerias/simpleXLSX.php";
 include("Data.php");
 include("connection.php");
 
-$day = date('d')-1;
+$day = date('d');
 $month = date('m');
 
 
@@ -13,7 +13,7 @@ $AllPaths = 'C:/Users/ProBook 6470b/Documents/mibot/Banco Ripley/Reporte_Base_pr
 $listOfFiles = (glob($AllPaths."bot*"));
 
 foreach ($listOfFiles as $key) {
-	$mysql = new mysqli($host,$username, $password, $database,$port);
+	$mysql = new mysqli($host,$username, $password, $database);
 
 	if (mysqli_connect_errno()) {
 		printf("Error de conexión: %s\n", mysqli_connect_error());
@@ -27,7 +27,7 @@ foreach ($listOfFiles as $key) {
 
 	foreach ($list as $path ) {
 
-		$mysql = new mysqli($host,$username, $password, $database,$port);
+		$mysql = new mysqli($host,$username, $password, $database);
 
 		if (mysqli_connect_errno()) {
 			printf("Error de conexión: %s\n", mysqli_connect_error());
@@ -58,7 +58,7 @@ foreach ($listOfFiles as $key) {
 
 	$textoPlano="CAMPANA, RUT, FONO, GESTION, FECHA, HORA, RANGO, INTERES, DURACION\r\n";
 
-	$mysql = new mysqli($host,$username, $password, $database,$port);
+	$mysql = new mysqli($host,$username, $password, $database);
 	if (mysqli_connect_errno()) {
 		printf("Error de conexión: %s\n", mysqli_connect_error());
 		exit();
